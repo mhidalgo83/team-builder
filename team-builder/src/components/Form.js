@@ -3,6 +3,7 @@ import Input from "./Input";
 import Button from "./Button";
 
 const Form = (props) => {
+    console.log(props);
   return (
     <form onSubmit={props.onSubmit}>
       Form
@@ -10,7 +11,7 @@ const Form = (props) => {
         htmlFor="Name"
         name="name"
         onChange={props.onChange}
-        value={props.user}
+        value={props.value.name}
         type="text"
         placeholder="Name"
       />
@@ -18,7 +19,7 @@ const Form = (props) => {
         htmlFor="Email"
         name="email"
         onChange={props.onChange}
-        value={props.email}
+        value={props.value.email}
         type="email"
         placeholder="email@email.com"
       />
@@ -26,7 +27,7 @@ const Form = (props) => {
         htmlFor="Role"
         name="role"
         onChange={props.onChange}
-        value={props.role}
+        value={props.value.role}
         type="text"
         placeholder="Role"
       />
