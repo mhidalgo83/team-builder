@@ -1,21 +1,30 @@
 import React from "react";
-import Input from "./Input";
-import Button from "./Button";
+import FormInput from "./FormInput";
+import FormButton from "./FormButton";
+import styled from "styled-components"
+
+const TeamForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  justify-content: space-around;
+  align-content: center;
+`
+
+
 
 const Form = (props) => {
-    console.log(props);
   return (
-    <form onSubmit={props.onSubmit}>
-      Form
-      <Input
+    <TeamForm onSubmit={props.onSubmit}>
+      <FormInput
         htmlFor="Name"
         name="name"
         onChange={props.onChange}
         value={props.value.name}
         type="text"
-        placeholder="Name"
+        placeholder="First/Last Name"
       />
-      <Input
+      <FormInput
         htmlFor="Email"
         name="email"
         onChange={props.onChange}
@@ -23,7 +32,7 @@ const Form = (props) => {
         type="email"
         placeholder="email@email.com"
       />
-      <Input
+      <FormInput
         htmlFor="Role"
         name="role"
         onChange={props.onChange}
@@ -31,8 +40,8 @@ const Form = (props) => {
         type="text"
         placeholder="Role"
       />
-      <Button>Submit</Button>
-    </form>
+      <FormButton>Submit</FormButton>
+    </TeamForm>
   );
 };
 
