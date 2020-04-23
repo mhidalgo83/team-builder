@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Form from "./components/Form";
+
 import TeamMember from "./components/TeamMember";
 
 const teamMembers = [
@@ -21,15 +22,14 @@ const teamMembers = [
   },
 ];
 
-console.log(teamMembers);
-
 function App() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     role: "",
   });
-
+  const [memberToEdit, setMemberToEdit] = useState({});
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -40,13 +40,19 @@ function App() {
     setFormData({ name: "", email: "", role: "" });
   };
 
-  console.log(teamMembers);
+  
 
   return (
     <div className="App">
-      <Form value={formData} onSubmit={handleSubmit} onChange={handleChange} />
+      <Form value={formData} onSubmit={handleSubmit} onChange={handleChange} memberToEdit={memberToEdit}/>
       {teamMembers.map((teamMember, i) => {
-        return <TeamMember key={i} teamMember={teamMember} />;
+        return (
+          <TeamMember
+            key={i}
+            teamMember={teamMember}
+            editMember={() => setMemberToEdit(teamMember)}
+          />
+        );
       })}
     </div>
   );

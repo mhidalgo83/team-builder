@@ -10,7 +10,7 @@ const Button = styled.button`
 `;
 
 const FormButton = (props) => {
-  return <Button>{props.children}</Button>;
+  return <Button onClick={props.onClick} className={props.className}>{props.children}</Button>;
 };
 
 export default FormButton;

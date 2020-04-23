@@ -1,7 +1,7 @@
-import React from "react";
+import React, {useEffect} from "react";
 import FormInput from "./FormInput";
 import FormButton from "./FormButton";
-import styled from "styled-components"
+import styled from "styled-components";
 
 const TeamForm = styled.form`
   display: flex;
@@ -9,11 +9,14 @@ const TeamForm = styled.form`
   width: 25%;
   justify-content: space-around;
   align-content: center;
-`
-
-
+`;
 
 const Form = (props) => {
+  console.log(props)
+
+useEffect(() => {
+
+},[])  
   return (
     <TeamForm onSubmit={props.onSubmit}>
       <FormInput

@@ -13,7 +13,6 @@ margin: 3% 5%;
 `
 
 const FormInput = (props) => {
-  console.log(props);
   return (
     <Label htmlFor={props.htmlFor}>
       {props.htmlFor}: 
