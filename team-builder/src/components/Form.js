@@ -12,14 +12,14 @@ const TeamForm = styled.form`
 `;
 
 const Form = (props) => {
-  console.log(props)
-
-useEffect(() => {
-
-},[])  
+  console.log(props);
+  useEffect(() => {
+    
+  }, [props.memberToEdit])
   return (
     <TeamForm onSubmit={props.onSubmit}>
       <FormInput
+        id="name"
         htmlFor="Name"
         name="name"
         onChange={props.onChange}
@@ -28,6 +28,7 @@ useEffect(() => {
         placeholder="First/Last Name"
       />
       <FormInput
+        id="email"
         htmlFor="Email"
         name="email"
         onChange={props.onChange}
@@ -36,6 +37,7 @@ useEffect(() => {
         placeholder="email@email.com"
       />
       <FormInput
+        id="role"
         htmlFor="Role"
         name="role"
         onChange={props.onChange}

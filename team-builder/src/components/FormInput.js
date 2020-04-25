@@ -2,21 +2,22 @@ import React from "react";
 import styled from "styled-components";
 
 const Input = styled.input`
-width: 80%;
-`
+  width: 80%;
+`;
 
 const Label = styled.label`
-display: flex;
-justify-content: space-between;
-align-content: center;
-margin: 3% 5%;
-`
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin: 3% 5%;
+`;
 
 const FormInput = (props) => {
   return (
     <Label htmlFor={props.htmlFor}>
       {props.htmlFor}: 
       <Input
+        id={props.id}
         name={props.name}
         type={props.type}
         value={props.value}
@@ -24,7 +25,7 @@ const FormInput = (props) => {
         placeholder={props.placeholder}
         required
       ></Input>
-    </Label>
+      </Label>
   );
 };
 

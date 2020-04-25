@@ -17,14 +17,14 @@ const Label = styled.h2`
   margin: 1% 0;
 `;
 
-const TeamMember = ({editMember, teamMember}) => {
-//   console.log(props);
+const TeamMember = (props) => {
+  console.log(props)
   return (
     <Card>
-      <Label>Name: {teamMember.name}</Label>
-      <Label>Email: {teamMember.email}</Label>
-      <Label>Role: {teamMember.role}</Label>
-      <Button onClick={editMember}>Edit</Button>
+      <Label>Name: {props.teamMember.name}</Label>
+      <Label>Email: {props.teamMember.email}</Label>
+      <Label>Role: {props.teamMember.role}</Label>
+      <Button onClick={props.editMember}>Edit</Button>
     </Card>
   );
 };
