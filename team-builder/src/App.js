@@ -22,6 +22,8 @@ const teamMembers = [
   },
 ];
 
+console.log(teamMembers);
+
 function App() {
   const [formData, setFormData] = useState({
     name: "",
@@ -33,21 +35,28 @@ function App() {
     email: "",
     role: "",
   });
-  const [isEditing, setIsEditing] = useState(false);
+  const [members, setMembers] = useState(teamMembers);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const addMember = (formData) => {
+    const newMember = {
+      name: formData.name,
+      email: formData.email,
+      role: formData.role,
+    };
+    return [...teamMembers, newMember];
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    teamMembers.push(formData);
+    setMembers(addMember(formData));
     setFormData({ name: "", email: "", role: "" });
-    setIsEditing(false);
   };
 
   const editMember = (teamMember) => {
-    setIsEditing(true);
     setMemberToEdit(teamMember);
     setFormData({
       name: teamMember.name,
@@ -63,15 +72,13 @@ function App() {
         onSubmit={handleSubmit}
         onChange={handleChange}
         memberToEdit={memberToEdit}
-        isEditing={isEditing}
       />
-      {teamMembers.map((teamMember, i) => {
+      {members.map((teamMember, index) => {
         return (
           <TeamMember
-            key={i}
+            key={index}
             teamMember={teamMember}
             editMember={() => editMember(teamMember)}
-            isEditing={isEditing}
           />
         );
       })}

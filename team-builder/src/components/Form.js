@@ -45,7 +45,7 @@ const Form = (props) => {
         type="text"
         placeholder="Role"
       />
-      <FormButton>Submit</FormButton>
+      <FormButton type="submit">Submit</FormButton>
     </TeamForm>
   );
 };
