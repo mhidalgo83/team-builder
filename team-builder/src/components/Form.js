@@ -12,6 +12,8 @@ const TeamForm = styled.form`
 `;
 
 const Form = (props) => {
+
+  
   console.log(props);
   useEffect(() => {
     

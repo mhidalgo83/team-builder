@@ -22,8 +22,6 @@ const teamMembers = [
   },
 ];
 
-console.log(teamMembers);
-
 function App() {
   const [formData, setFormData] = useState({
     name: "",
@@ -36,7 +34,8 @@ function App() {
     role: "",
   });
   const [members, setMembers] = useState(teamMembers);
-
+  console.log(members);
+  
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -47,12 +46,12 @@ function App() {
       email: formData.email,
       role: formData.role,
     };
-    return [...teamMembers, newMember];
+    setMembers([...members, newMember]);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setMembers(addMember(formData));
+    addMember(formData);
     setFormData({ name: "", email: "", role: "" });
   };
 
@@ -78,7 +77,7 @@ function App() {
           <TeamMember
             key={index}
             teamMember={teamMember}
-            editMember={() => editMember(teamMember)}
+            // editMember={() => editMember(teamMember)}
           />
         );
       })}

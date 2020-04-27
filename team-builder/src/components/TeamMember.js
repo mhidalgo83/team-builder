@@ -18,7 +18,6 @@ const Label = styled.h2`
 `;
 
 const TeamMember = (props) => {
-  console.log(props)
   return (
     <Card>
       <Label>Name: {props.teamMember.name}</Label>
